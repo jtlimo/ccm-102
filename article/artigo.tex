@@ -72,45 +72,35 @@ implementação do modelo.
 % Delimitação e Escopo & Organização do Trabalho
 
 %============================= Ana e Jessica ============================================%
-Os veículos aéreos não tripulados (VANTS) são conhecidos como aeronaves que operam sem piloto,
-sendo um tipo de tecnologia essencial em diversas áreas civis e militares.
-O uso de drones reduzem a exposição humana a tarefas repetitivas, de longa duração e em alguns casos perigosas \cite{dialogos}.
-Alguns exemplos de uso são: gerenciamento de desastres, vigilância aérea, fotografia aérea de rastreamento, pesquisa e resgate,
+Os veículos aéreos não tripulados (VANTS), também conhecidos como drone, são conhecidos como aeronaves que operam sem piloto,
+sendo um tipo de tecnologia fundamental tanto em áreas civis quanto militares.
+O uso de drones reduzem a exposição humana a tarefas repetitivas, de longa duração e em alguns casos, de alto risco \cite{dialogos}.
+Desempenham papel importante nas seguintes áreas: gerenciamento de desastres, vigilância aérea, fotografia aérea de rastreamento, pesquisa e resgate,
 monitoramento de gado, dentre outros. \cite{titounaLightweightSecurityTechnique2021} 
 
-Esses sistemas possuem designs versáteis para atender diversas necessidades,
-e para isso existem requerimentos para sua qualidade dentre eles estão: bateria, peso, tamanho e as coordenadas.
+Esses sistemas possuem designs versáteis para atender diversas necessidades.
 Esses dispositivos carregam dados cruciais para seus usuários, devido ao seu longo alcance,
 para a realização de diversos trabalhos. \cite{khan}. 
 
 Por serem operados de maneira autônoma e remota suas coordenadas são essenciais
-para o cumprimento de seus objetivos, para isso são usados sinais de Sistema Global de Navegação por Satélite (GNSS),
+para o sucesso de suas missões, para isso são usados sinais de Sistema Global de Navegação por Satélite (GNSS),
 sendo o mais conhecido o \textit{Global Positioning System} (GPS), esses sinais podem ser criptografados ou não
 \cite {lester}. Sinais militares possuem criptografia, enquanto os que são de uso civil não possuem mecanismos de proteção.
 Com isso ocorre a extrema vulnerabilidade a diversos tipos de ataques, principalmente os conhecidos como \textit{Spoofing de GPS}.
 \cite{srinivasansGPSSpoofingDetection2023}.
 
 O tipo de ataque analisado nesse artigo é o \textit{spoofing}. 
-Ele é caracterizado por um atacante que faz uso de antenas terrestres emitindo sinais falsos
+Ele é caracterizado por uma técnica de ataque na qual o agressor faz uso de antenas terrestres emitindo sinais falsos
 de localização com o objetivo de direcionar o dispositivo em direção ao atacante \cite {Spoofing}.
 Esse tipo de ação pode resultar em: danos materiais e o acesso indevido aos dados do usuário,
 conforme relatado em diversos incidentes mundialmente.
 \cite{g1drone2022a,g1drone2022b,bandnews2022,bemparana2022,veja2022,forbes2020,australianaviation2022}
 
-\begin{quote}
-  Como resultado, garantir a segurança cibernética [\dots] se tornou uma preocupação crucial [\dots].
-  Isso destaca a necessidade de extensas pesquisas na segurança cibernética [\dots] que se concentram na detecção
-  e prevenção de ataques e falhas.  \cite[tradução nossa]{elalamiDroneDefGANtGenerativeAIBased2024}
-\end{quote}
-
 Para garantir um vôo seguro do VANT é essencial ter medidas para detecção dos ataques de \textit{Spoofing de GPS}.
 A identificação precisa desses ataques é extremamente importante, pois técnicas avançadas de \textit{spoofing}
 podem causar disrupção no funcionamento do VANT. Portanto são necessários métodos robustos e adaptativos.
-\cite{isleyenGPSSpoofingDetection2024}
-
-Segundo Isleyen e Bahtiyar (2024, tradução nossa) \enquote{Os algoritmos de aprendizado de máquina podem analisar]
-grandes volumes de dados para identificar padrões e anomalias sutis
-que são indicativas de falsificação.}
+\cite{isleyenGPSSpoofingDetection2024} Nesse contexto segundo Isleyen e Bahtiyar (2024, tradução nossa), algoritmos com aprendizado de máquina tem se mostrado promissores, pois são capazes de analisar
+grandes volumetrias de dados, identificando padrões e anomalias. Tais abordagens oferecem uma resposta robusta e adaptativa a essas ameaças contribuindo para as operações dos VANTs.
 
 
 %Delimitação e Escopo
