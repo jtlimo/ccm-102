@@ -50,12 +50,12 @@ implementação do modelo.
 \end{resumo}
 
 \section{Introdução}
-% Aqui sem divisão as nossas partes, 
-% Contextualização Geral & Revisão de Literatura
-% Justificativa & Objetivos
-% Delimitação e Escopo & Organização do Trabalho
 
-
+\begin{comment}
+  Introdução, Fundamentação teórica/Trabalhos
+  relacionados, Proposta, Metodologia experimental, Resultados e discussão,
+  Conclusão, Referências; 
+\end{comment}
 Os veículos aéreos não tripulados (VANTS), também conhecidos como drone,
 é um tipo de tecnologia fundamental tanto em áreas civis quanto militares.
 Seu uso reduz a exposição humana a tarefas repetitivas, de longa duração e em alguns casos, de alto risco \cite{dialogos}.
@@ -72,6 +72,30 @@ A identificação precisa desses ataques é extremamente importante, pois técni
 podem causar disrupção no funcionamento do VANT, portanto são necessários métodos robustos e adaptativos \cite{isleyenGPSSpoofingDetection2024}.
 Nesse contexto algoritmos com aprendizado de máquina tem se mostrado promissores, pois são capazes de analisar
 grandes volumetrias de dados, identificando padrões e anomalias. Tais abordagens oferecem uma resposta robusta e adaptativa a essas ameaças contribuindo para as operações dos VANTs \cite{isleyenGPSSpoofingDetection2024}.
+
+Diversos estudos recentes tem utilizado
+essa abordagem para detecção de \textit{spoofing} de GPS.
+Podemos mencionar algumas abordagens utilizadas:
+
+\begin{itemize}
+    \item \textbf{Redes neurais profundas (DNN):} Extração de padrões complexos em séries temporais dos sinais GNSS \cite{isleyenGPSSpoofingDetection2024}.
+
+    \item \textbf{Máquinas de vetores de suporte (SVM):}
+
+     Abordagem foi centrada na identificação
+     de discrepâncias entre as posições determinadas pelos sinais de GPS
+     e aquelas medidas pelo sistema de navegação inercial (INS).
+     Especificamente, o modelo SVM foi treinado nos valores de erro
+     gerados a partir dessas diferenças posicionais,
+     permitindo que o sistema detecte inconsistências que poderiam
+     indicar um ataque de \textit{spoofing} de GPS.
+     \cite{panice2017}
+    
+
+    \item \textbf{IA Generativa:}  Abordagem que em comparação com outros modelos de aprendizagem de máquina, se destacou pela eficácia na deteção dos ataques de \textit{spoofing} e \textit{jamming}  \cite{elalamiDroneDefGANtGenerativeAIBased2024}.
+    
+\end{itemize}
+
 
 
 \section{Delimitação e Escopo}
