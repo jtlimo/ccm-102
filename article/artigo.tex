@@ -58,35 +58,20 @@ implementação do modelo.
 
 Os veículos aéreos não tripulados (VANTS), também conhecidos como drone,
 é um tipo de tecnologia fundamental tanto em áreas civis quanto militares.
-O uso de drones reduzem a exposição humana a tarefas repetitivas, de longa duração e em alguns casos, de alto risco \cite{dialogos}.
+Seu uso reduz a exposição humana a tarefas repetitivas, de longa duração e em alguns casos, de alto risco \cite{dialogos}.
 Desempenham papel importante nas seguintes áreas: gerenciamento de desastres, vigilância aérea, fotografia aérea de rastreamento, pesquisa e resgate,
 monitoramento de gado, dentre outros. \cite{titounaLightweightSecurityTechnique2021} 
-
-%Esses sistemas possuem designs versáteis para atender diversas necessidades.
-%Esses dispositivos carregam dados cruciais para seus usuários, devido ao seu longo alcance,
-%para a realização de diversos trabalhos. \cite{khan}. 
 
 Por serem operados de maneira autônoma e remota suas coordenadas são essenciais
 para o sucesso de suas missões, para isso são usados sinais de Sistema Global de Navegação por Satélite (GNSS),
 sendo o mais conhecido o \textit{Global Positioning System} (GPS), esses sinais podem ser criptografados ou não
 \cite {lester}. Sendo os não criptografados mais suscetíveis a ataques conhecidos como \textit{Spoofing} de GPS \cite{srinivasansGPSSpoofingDetection2023}. 
 
-%Sinais militares possuem criptografia, enquanto os que são de uso civil não possuem mecanismos de proteção.
-%Com isso ocorre a extrema vulnerabilidade a diversos tipos de ataques, principalmente os conhecidos como \textit{Spoofing de GPS}.
-%\cite{srinivasansGPSSpoofingDetection2023}.
-
-%O tipo de ataque analisado nesse artigo é o \textit{spoofing}. 
-%Ele é caracterizado por uma técnica de ataque na qual o agressor faz uso de antenas terrestres emitindo sinais falsos
-%de localização \cite {Spoofing}.
-%Esse tipo de ação pode resultar em: danos materiais e o acesso indevido aos dados do usuário,
-%conforme relatado em diversos incidentes mundialmente.
-%\cite{g1drone2022a,g1drone2022b,bandnews2022,bemparana2022,veja2022,forbes2020,australianaviation2022}
-
 Para garantir um vôo seguro do VANT é essencial ter medidas para detecção dos ataques de \textit{Spoofing de GPS}.
 A identificação precisa desses ataques é extremamente importante, pois técnicas avançadas de \textit{spoofing}
-podem causar disrupção no funcionamento do VANT. Portanto são necessários métodos robustos e adaptativos \cite{isleyenGPSSpoofingDetection2024}.
+podem causar disrupção no funcionamento do VANT, portanto são necessários métodos robustos e adaptativos \cite{isleyenGPSSpoofingDetection2024}.
 Nesse contexto algoritmos com aprendizado de máquina tem se mostrado promissores, pois são capazes de analisar
-grandes volumetrias de dados, identificando padrões e anomalias. Tais abordagens oferecem uma resposta robusta e adaptativa a essas ameaças contribuindo para as operações dos VANTs \cite[tradução nossa]{isleyenGPSSpoofingDetection2024}.
+grandes volumetrias de dados, identificando padrões e anomalias. Tais abordagens oferecem uma resposta robusta e adaptativa a essas ameaças contribuindo para as operações dos VANTs \cite{isleyenGPSSpoofingDetection2024}.
 
 
 \section{Delimitação e Escopo}
@@ -106,13 +91,15 @@ trabalho serão expostos na seção 5.
 \section{Metodologia (Proposta de mudança)}
 
 Para alcançar o objetivo deste estudo, esta seção detalha a abordagem proposta para a classificação de possíveis ataques de \textit{spoofing} 
-a sinais de GPS, avaliando o desempenho dos algoritmos: (i) Naive Bayes, (ii) K-NN, (iii) Extreme Random Forest, (iv) Random Forest e (v)  Gaussian Naive Bayes. 
+a sinais de GPS, avaliando o desempenho dos algoritmos: (i) Naive Bayes, (ii) K-NN, (iii) Extreme Random Forest, (iv) Random Forest e (v)  Gaussian Naive Bayes.
 
 A metodologia adotada e os passos seguidos foram inspirados no artigo de \cite{Aissou2021}, com o objetivo de explorar os dados obtidos. Serão analisados a acurácia, 
 precisão e a quantidade de falsos negativos. 
-Para isso a base será dividida em porções diferentes para testes e o treinamento do modelo, sendo 80\% para treino e 20\% para testes. E será aplicada a técnica de pré processamento 
-\textit{Principal Component Analysis} (PCA) para melhorar a precisão dos resultados final. Esse tipo de processamento ajuda algoritmos de aprendizagem de máquina, simplificando o processo de reconhecimento dos dados, essa técnica é
-diferente da usada no artigo de \cite{Aissou2021}.
+Para isso a base será dividida em porções diferentes para testes e o treinamento do modelo, sendo 80\% para treino e 20\% para testes. 
+
+E será aplicada a técnica de pré processamento \textit{Principal Component Analysis} (PCA) para melhorar a precisão dos resultados finais, ela consiste em reduzir as dimensões do dataset para deixar apenas as informações mais importantes, removendo assim as redundâncias \cite{IBM02025}. 
+Esse tipo de processamento ajuda algoritmos de aprendizagem de máquina, simplificando o processo de reconhecimento dos dados, essa técnica é
+diferente da usada no artigo de \cite{Aissou2021} que se chama \textit{Spearman Correlation Coefficient}.
 
 %\subsection{Algoritmos}
 
