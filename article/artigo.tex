@@ -8,6 +8,22 @@
 \usepackage{lipsum}
 \usepackage{csquotes}
 \usepackage{url}
+\usepackage[
+    style=authoryear,
+    citestyle=authoryear,
+    backend=biber
+]{biblatex}
+
+\addbibresource{references.bib}
+
+\DeclareFieldFormat{labelyear}{#1}
+\renewcommand*{\nameyeardelim}{\addspace}
+\renewbibmacro*{cite}{%
+  \printtext[brackets]{%
+    \printnames{labelname}%
+    \setunit{\nameyeardelim}%
+    \printfield{labelyear}%
+  }}
 
 \urlstyle{same} 
 
@@ -56,6 +72,7 @@ implementação do modelo.
   relacionados, Proposta, Metodologia experimental, Resultados e discussão,
   Conclusão, Referências; 
 \end{comment}
+
 Os veículos aéreos não tripulados (VANTS), também conhecidos como drone,
 é um tipo de tecnologia fundamental tanto em áreas civis quanto militares.
 Seu uso reduz a exposição humana a tarefas repetitivas, de longa duração e em alguns casos, de alto risco \cite{dialogos}.
@@ -73,12 +90,16 @@ podem causar disrupção no funcionamento do VANT, portanto são necessários m�
 Nesse contexto algoritmos com aprendizado de máquina tem se mostrado promissores, pois são capazes de analisar
 grandes volumetrias de dados, identificando padrões e anomalias. Tais abordagens oferecem uma resposta robusta e adaptativa a essas ameaças contribuindo para as operações dos VANTs \cite{isleyenGPSSpoofingDetection2024}.
 
+\section{Trabalhos relacionados}
+
 Diversos estudos recentes tem utilizado
 essa abordagem para detecção de \textit{spoofing} de GPS.
 Podemos mencionar algumas abordagens utilizadas:
 
 \begin{itemize}
-    \item \textbf{Redes neurais profundas (DNN):} Extração de padrões complexos em séries temporais dos sinais GNSS \cite{isleyenGPSSpoofingDetection2024}.
+    \item \textbf{Redes neurais profundas (DNN):}
+     Extração de padrões complexos em séries temporais dos sinais GNSS.
+     \cite{isleyenGPSSpoofingDetection2024}
 
     \item \textbf{Máquinas de vetores de suporte (SVM):}
 
@@ -91,8 +112,25 @@ Podemos mencionar algumas abordagens utilizadas:
      indicar um ataque de \textit{spoofing} de GPS.
      \cite{panice2017}
     
+    \item \textbf{Redes neurais convolucionais (CNN):} Em comparação
+    aos modelos tradicionais de machine learning,
+    os de aprendizagem profunda obtiveram alta acurácia na detecção dos
+    ataques de \textit{spoofing}.
+    A grande vantagem desses modelos baseados em aprendizagem profunda,
+    é pelo fato de aprenderem automaticamente a extraírem as \textit{features}
+    sem precisarem de intervenção humana. Além de se adaptarem melhor a \textit{datasets}
+    mais complexos. \cite{cnn2023}
 
-    \item \textbf{IA Generativa:}  Abordagem que em comparação com outros modelos de aprendizagem de máquina, se destacou pela eficácia na deteção dos ataques de \textit{spoofing} e \textit{jamming}  \cite{elalamiDroneDefGANtGenerativeAIBased2024}.
+    
+    \item \textbf{Ensembles (como Random Forest):}
+    \textcite{Aissou2021} utilizou diversos modelos baseados
+     em árvores para fazer um comparativo de qual seria melhor na detecção dos ataques
+     de \textit{spoofing} de GPS.
+
+    \item \textbf{IA Generativa:}  Abordagem que em comparação com outros
+    modelos de aprendizagem de máquina, se destacou pela eficácia
+    na deteção dos ataques de \textit{spoofing} e \textit{jamming}.
+    \cite{elalamiDroneDefGANtGenerativeAIBased2024}
     
 \end{itemize}
 
@@ -105,12 +143,12 @@ contém aproximadamente 500,000 dados que logo serão reduzidos a uma quantidade
 considerável. Então, os resultados do trabalho ficarão
 limitados a este \textit{dataset}. De acordo com o artigo de \cite{Aissou2021}, os ataques do tipo \textit{spoofing} podem ser classificados em: simples, intermediários e sofisticados.
 
-Nas próximas seções se estabelecerá a execução do trabalho. Na seção 3, faremos 
+Nas próximas seções se estabelecerá a execução do trabalho. Na seção 4, faremos 
 nossa proposta de mudança ao trabalho de \cite{Aissou2021}, discutindo a 
 metodologia e modelos de aprendizado de máquina a
 serem implementados. Logo, os resultados e 
-discussões serão apresentados na seção 4. Finalmente, nossas conclusões sobre o 
-trabalho serão expostos na seção 5.
+discussões serão apresentados na seção 5.
+Finalmente, nossas conclusões sobre o trabalho serão expostos na seção 6.
 
 \section{Metodologia (Proposta de mudança)}
 
@@ -131,7 +169,6 @@ diferente da usada no artigo de \cite{Aissou2021} que se chama \textit{Spearman 
 
 
 
-\bibliographystyle{sbc}
-\bibliography{references}
+\printbibliography
 
 \end{document}
