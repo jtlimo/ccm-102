@@ -67,12 +67,6 @@ implementação do modelo.
 
 \section{Introdução}
 
-\begin{comment}
-  Introdução, Fundamentação teórica/Trabalhos
-  relacionados, Proposta, Metodologia experimental, Resultados e discussão,
-  Conclusão, Referências; 
-\end{comment}
-
 Os veículos aéreos não tripulados (VANTS), também conhecidos como drone,
 é um tipo de tecnologia fundamental tanto em áreas civis quanto militares.
 Seu uso reduz a exposição humana a tarefas repetitivas, de longa duração e em alguns casos, de alto risco \cite{dialogos}.
@@ -103,17 +97,17 @@ Podemos mencionar algumas abordagens utilizadas:
 
     \item \textbf{Máquinas de vetores de suporte (SVM):}
 
-     Abordagem foi centrada na identificação
+     Abordagem teve como objetivo a identificação
      de discrepâncias entre as posições determinadas pelos sinais de GPS
      e aquelas medidas pelo sistema de navegação inercial (INS).
-     Especificamente, o modelo SVM foi treinado nos valores de erro
-     gerados a partir dessas diferenças posicionais,
+     Especificamente, o modelo SVM foi treinado através dos erros obtidos
+     das diferenças posicionais,
      permitindo que o sistema detecte inconsistências que poderiam
      indicar um ataque de \textit{spoofing} de GPS.
      \cite{panice2017}
     
     \item \textbf{Redes neurais convolucionais (CNN):} Em comparação
-    aos modelos tradicionais de machine learning,
+    aos modelos tradicionais de aprendizagem de máquina,
     os de aprendizagem profunda obtiveram alta acurácia na detecção dos
     ataques de \textit{spoofing}.
     A grande vantagem desses modelos baseados em aprendizagem profunda,
@@ -122,10 +116,11 @@ Podemos mencionar algumas abordagens utilizadas:
     mais complexos. \cite{cnn2023}
 
     
-    \item \textbf{Ensembles (como Random Forest):}
-    \textcite{Aissou2021} utilizou diversos modelos baseados
-     em árvores para fazer um comparativo de qual seria melhor na detecção dos ataques
-     de \textit{spoofing} de GPS.
+    \item \textbf{Aprendizagem supervisionada (Baseado em Árvores):}
+    \textcite{Aissou2021} utilizou os seguintes modelos baseados
+     em árvores: Random Forest, Gradient Boost, XGBoost e LightGBM
+     para fazer um comparativo de qual seria melhor na detecção dos ataques
+     de \textit{spoofing} de GPS. Sendo que o XGBoost obteve a melhor acurácia (95,52\%).
 
     \item \textbf{IA Generativa:}  Abordagem que em comparação com outros
     modelos de aprendizagem de máquina, se destacou pela eficácia
