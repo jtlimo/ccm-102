@@ -59,30 +59,43 @@ na detecção destes ataques através de técnicas sofisticadas, reduzindo a
 quantidade de falsos alarmes e fornecendo informações confiáveis por meio do 
 aprendizado de máquina que exerce papel fundamental na classificação destes 
 ataques. A proposta deste projeto é realizar uma análise comparativa das 
-métricas de avaliação dos seguintes modelos de aprendizado de máquina: Random 
-Forest, Naive Bayes, K-NN, Gaussian Naive Bayes e Extremely Randomized Trees, visando identificar 
-aquele que melhor equilibre a detecção correta de spoofing e viabilidade de 
-implementação do modelo.
+métricas de avaliação dos seguintes modelos de aprendizado de máquina:
+Random Forest, Naive Bayes, K-NN, Gaussian Naive Bayes e Extremely Randomized Trees,
+visando identificar aquele que melhor equilibre a detecção correta
+de spoofing e viabilidade de implementação do modelo.
 \end{resumo}
 
 \section{Introdução}
 
 Os veículos aéreos não tripulados (VANTS), também conhecidos como drone,
-é um tipo de tecnologia fundamental tanto em áreas civis quanto militares.
-Seu uso reduz a exposição humana a tarefas repetitivas, de longa duração e em alguns casos, de alto risco \cite{dialogos}.
-Desempenham papel importante nas seguintes áreas: gerenciamento de desastres, vigilância aérea, fotografia aérea de rastreamento, pesquisa e resgate,
+são um tipo de tecnologia fundamental tanto em áreas civis quanto militares.
+Seu uso reduz a exposição humana a tarefas repetitivas, de longa duração
+e em alguns casos, de alto risco \cite{dialogos}.
+Desempenham papel importante nas seguintes áreas: gerenciamento de desastres,
+vigilância aérea, fotografia aérea de rastreamento, pesquisa e resgate,
 monitoramento de gado, dentre outros. \cite{titounaLightweightSecurityTechnique2021} 
 
 Por serem operados de maneira autônoma e remota suas coordenadas são essenciais
-para o sucesso de suas missões, para isso são usados sinais de Sistema Global de Navegação por Satélite (GNSS),
-sendo o mais conhecido o \textit{Global Positioning System} (GPS), esses sinais podem ser criptografados ou não
-\cite {lester}. Sendo os não criptografados mais suscetíveis a ataques conhecidos como \textit{Spoofing} de GPS \cite{srinivasansGPSSpoofingDetection2023}. 
+para o sucesso de suas missões, para isso são usados sinais
+de Sistema Global de Navegação por Satélite (GNSS),
+sendo o mais conhecido o \textit{Global Positioning System} (GPS),
+esses sinais podem ser criptografados ou não \cite {lester}.
+Sendo os não criptografados mais suscetíveis a ataques conhecidos como
+\textit{Spoofing} de GPS \cite{srinivasansGPSSpoofingDetection2023}. 
 
-Para garantir um vôo seguro do VANT é essencial ter medidas para detecção dos ataques de \textit{Spoofing de GPS}.
-A identificação precisa desses ataques é extremamente importante, pois técnicas avançadas de \textit{spoofing}
-podem causar disrupção no funcionamento do VANT, portanto são necessários métodos robustos e adaptativos \cite{isleyenGPSSpoofingDetection2024}.
-Nesse contexto algoritmos com aprendizado de máquina tem se mostrado promissores, pois são capazes de analisar
-grandes volumetrias de dados, identificando padrões e anomalias. Tais abordagens oferecem uma resposta robusta e adaptativa a essas ameaças contribuindo para as operações dos VANTs \cite{isleyenGPSSpoofingDetection2024}.
+Para garantir um vôo seguro do VANT é essencial ter medidas
+para detecção dos ataques de \textit{Spoofing de GPS}.
+A identificação precisa desses ataques é extremamente importante,
+pois técnicas avançadas de \textit{spoofing}
+podem causar disrupção no funcionamento do VANT,
+portanto são necessários métodos robustos e adaptativos
+\cite{isleyenGPSSpoofingDetection2024}.
+Nesse contexto algoritmos de aprendizado de máquina tem se mostrado promissores,
+pois são capazes de analisar grandes volumetrias de dados,
+identificando padrões e anomalias.
+Tais abordagens oferecem uma resposta robusta e adaptativa
+a essas ameaças contribuindo para as operações dos VANTs
+\cite{isleyenGPSSpoofingDetection2024}.
 
 \section{Trabalhos relacionados}
 
@@ -112,15 +125,16 @@ Podemos mencionar algumas abordagens utilizadas:
     ataques de \textit{spoofing}.
     A grande vantagem desses modelos baseados em aprendizagem profunda,
     é pelo fato de aprenderem automaticamente a extraírem as \textit{features}
-    sem precisarem de intervenção humana. Além de se adaptarem melhor a \textit{datasets}
-    mais complexos. \cite{cnn2023}
+    sem precisarem de intervenção humana. Além de se adaptarem melhor
+    a \textit{datasets} mais complexos. \cite{cnn2023}
 
     
     \item \textbf{Aprendizagem supervisionada (Baseado em Árvores):}
     \textcite{Aissou2021} utilizou os seguintes modelos baseados
      em árvores: Random Forest, Gradient Boost, XGBoost e LightGBM
      para fazer um comparativo de qual seria melhor na detecção dos ataques
-     de \textit{spoofing} de GPS. Sendo que o XGBoost obteve a melhor acurácia (95,52\%).
+     de \textit{spoofing} de GPS.
+     Sendo que o XGBoost obteve a melhor acurácia (95,52\%).
 
     \item \textbf{IA Generativa:}  Abordagem que em comparação com outros
     modelos de aprendizagem de máquina, se destacou pela eficácia
@@ -129,14 +143,15 @@ Podemos mencionar algumas abordagens utilizadas:
     
 \end{itemize}
 
-
-
 \section{Delimitação e Escopo}
 O \textit{dataset} que será utilizado como base de dados é o \textit{Mendeley Data} 
 \cite{aissou2022dataset}, esses dados foram gerados de sinais GPS autênticos e 
 contém aproximadamente 500,000 dados que logo serão reduzidos a uma quantidade
 considerável. Então, os resultados do trabalho ficarão
-limitados a este \textit{dataset}. De acordo com o artigo de \cite{Aissou2021}, os ataques do tipo \textit{spoofing} podem ser classificados em: simples, intermediários e sofisticados.
+limitados a este \textit{dataset}.
+De acordo com o artigo de \cite{Aissou2021}, os ataques do tipo
+\textit{spoofing} podem ser classificados em: simples,
+intermediários e sofisticados.
 
 Nas próximas seções se estabelecerá a execução do trabalho. Na seção 4, faremos 
 nossa proposta de mudança ao trabalho de \cite{Aissou2021}, discutindo a 
@@ -147,22 +162,33 @@ Finalmente, nossas conclusões sobre o trabalho serão expostos na seção 6.
 
 \section{Metodologia (Proposta de mudança)}
 
-Para alcançar o objetivo deste estudo, esta seção detalha a abordagem proposta para a classificação de possíveis ataques de \textit{spoofing} 
-a sinais de GPS, avaliando o desempenho dos algoritmos: (i) Naive Bayes, (ii) K-NN, (iii) Extreme Random Forest, (iv) Random Forest e (v)  Gaussian Naive Bayes.
+Para alcançar o objetivo deste estudo,
+esta seção detalha a abordagem proposta para a classificação
+de possíveis ataques de \textit{spoofing} 
+a sinais de GPS, avaliando o desempenho dos algoritmos:
+(i) Naive Bayes, (ii) K-NN, (iii) Extreme Random Forest,
+(iv) Random Forest e (v)  Gaussian Naive Bayes.
 
-A metodologia adotada e os passos seguidos foram inspirados no artigo de \cite{Aissou2021}, com o objetivo de explorar os dados obtidos. Serão analisados a acurácia, 
+A metodologia adotada e os passos seguidos
+foram inspirados no artigo de \cite{Aissou2021},
+com o objetivo de explorar os dados obtidos.
+Serão analisados a acurácia, 
 precisão e a quantidade de falsos negativos. 
-Para isso a base será dividida em porções diferentes para testes e o treinamento do modelo, sendo 80\% para treino e 20\% para testes. 
+Para isso a base será dividida em porções
+diferentes para testes e o treinamento do modelo,
+sendo 80\% para treino e 20\% para testes. 
 
-E será aplicada a técnica de pré processamento \textit{Principal Component Analysis} (PCA) para melhorar a precisão dos resultados finais, ela consiste em reduzir as dimensões do dataset para deixar apenas as informações mais importantes, removendo assim as redundâncias \cite{IBM02025}. 
-Esse tipo de processamento ajuda algoritmos de aprendizagem de máquina, simplificando o processo de reconhecimento dos dados, essa técnica é
-diferente da usada no artigo de \cite{Aissou2021} que se chama \textit{Spearman Correlation Coefficient}.
+Será aplicada a técnica de pré processamento
+\textit{Principal Component Analysis} (PCA) para melhorar
+a precisão dos resultados finais, ela consiste em reduzir as
+dimensões do dataset para deixar apenas as informações mais importantes,
+removendo assim as redundâncias \cite{IBM02025}. 
+Esse tipo de processamento ajuda algoritmos de aprendizagem de máquina,
+simplificando o processo de reconhecimento dos dados, essa técnica é
+diferente da usada no artigo de \cite{Aissou2021}
+que se chama \textit{Spearman Correlation Coefficient}.
 
 %\subsection{Algoritmos}
-
-
-
-
 
 \printbibliography
 
