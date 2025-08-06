@@ -146,9 +146,10 @@ Podemos mencionar algumas abordagens utilizadas:
 \section{Delimitação e Escopo}
 O \textit{dataset} que será utilizado como base de dados é o \textit{Mendeley Data} 
 \cite{aissou2022dataset}, esses dados foram gerados de sinais GPS autênticos e 
-contém aproximadamente 500,000 dados que logo serão reduzidos a uma quantidade
-considerável. Então, os resultados do trabalho ficarão
-limitados a este \textit{dataset}.
+contém aproximadamente 500,000 dados, no artigo escolhido de \cite{Aissou2021} não 
+possui uma citação do \textit{dataset} usado para o treinamento dos modelos, 
+então para as análises decorrentes deste artigo será utilizada essa fonte de dados 
+simplificada e disponibilizada pelos autores do artigo. 
 De acordo com o artigo de \cite{Aissou2021}, os ataques do tipo
 \textit{spoofing} podem ser classificados em: simples,
 intermediários e sofisticados.
@@ -162,21 +163,31 @@ Finalmente, nossas conclusões sobre o trabalho serão expostos na seção 6.
 
 \section{Metodologia (Proposta de mudança)}
 
-Para alcançar o objetivo deste estudo,
-esta seção detalha a abordagem proposta para a classificação
-de possíveis ataques de \textit{spoofing} 
-a sinais de GPS, avaliando o desempenho dos algoritmos:
-(i) Naive Bayes, (ii) K-NN, (iii) Extreme Random Forest,
-(iv) Random Forest e (v)  Gaussian Naive Bayes.
 
 A metodologia adotada e os passos seguidos
-foram inspirados no artigo de \cite{Aissou2021},
-com o objetivo de explorar os dados obtidos.
+foram inspirados no artigo de \cite{Aissou2021}, 
+que utilizou a implementações de algoritmos como: 
+\textit{Random Forest}, \textit{Gradient Boost}, \textit{XGBoost}, e 
+\textit{LightGBM} com o objetivo de explorar os dados obtidos.
+
+A proposta de mudança deste artigo é avaliar outros modelos
+para a classificação de possíveis ataques de \textit{spoofing} 
+a sinais de GPS, com enfoque em algoritmos que não são baseados em árvore, sendo estes:
+(i) \textit{Naive Bayes}, (ii) \textit{K-NN} e (iii) \textit{Gaussian Naive Bayes}.
+
+Além da reimplementação do algoritmo (iv) \textit{Random Forest}
+que foi utilizado no artigo \cite{Aissou2021} e obteve o pior desempenho no comparativo.
+Com base no desempenho do \textit{Random Forest}, será feita a implementação do algoritmo 
+(v) \textit{Extremely randomized trees}, um modelo melhorado do \textit{Random Forest},
+que se diferem pelo fato de no \textit{Extremely randomized trees}
+não existir a fase de \textit{bagging} e no momento da separação dos nós,
+esta escolha é feita aleatoriamente. \cite{geurtsExtremelyRandomizedTrees2006}
+
 Serão analisados a acurácia, 
 precisão e a quantidade de falsos negativos. 
 Para isso a base será dividida em porções
 diferentes para testes e o treinamento do modelo,
-sendo 80\% para treino e 20\% para testes. 
+sendo 70\% para treino e 30\% para testes como no artigo de \cite{Aissou2021}. 
 
 Será aplicada a técnica de pré processamento
 \textit{Principal Component Analysis} (PCA) para melhorar
