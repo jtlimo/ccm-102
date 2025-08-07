@@ -60,7 +60,8 @@ quantidade de falsos alarmes e fornecendo informações confiáveis por meio do
 aprendizado de máquina que exerce papel fundamental na classificação destes 
 ataques. A proposta deste projeto é realizar uma análise comparativa das 
 métricas de avaliação dos seguintes modelos de aprendizado de máquina:
-Random Forest, Naive Bayes, K-NN, Gaussian Naive Bayes e Extremely Randomized Trees,
+Random Forest, XGBoost, Naive Bayes, K-NN,
+Gaussian Naive Bayes e Extremely Randomized Trees,
 visando identificar aquele que melhor equilibre a detecção correta
 de spoofing e viabilidade de implementação do modelo.
 \end{resumo}
@@ -154,8 +155,9 @@ De acordo com o artigo de \cite{Aissou2021}, os ataques do tipo
 \textit{spoofing} podem ser classificados em: simples,
 intermediários e sofisticados.
 
-Nas próximas seções se estabelecerá a execução do trabalho. Na seção 4, faremos 
-nossa proposta de mudança ao trabalho de \cite{Aissou2021}, discutindo a 
+Nas próximas seções se estabelecerá a execução do trabalho.
+Na seção 4, faremos nossa proposta de mudança
+ao trabalho de \cite{Aissou2021}, discutindo a 
 metodologia e modelos de aprendizado de máquina a
 serem implementados. Logo, os resultados e 
 discussões serão apresentados na seção 5.
@@ -166,36 +168,45 @@ Finalmente, nossas conclusões sobre o trabalho serão expostos na seção 6.
 
 A metodologia adotada e os passos seguidos
 foram inspirados no artigo de \cite{Aissou2021}, 
-que utilizou a implementações de algoritmos como: 
+que utilizou a implementação de algoritmos como: 
 \textit{Random Forest}, \textit{Gradient Boost}, \textit{XGBoost}, e 
 \textit{LightGBM} com o objetivo de explorar os dados obtidos.
 
 A proposta de mudança deste artigo é avaliar outros modelos
 para a classificação de possíveis ataques de \textit{spoofing} 
-a sinais de GPS, com enfoque em algoritmos que não são baseados em árvore, sendo estes:
-(i) \textit{Naive Bayes}, (ii) \textit{K-NN} e (iii) \textit{Gaussian Naive Bayes}.
+a sinais de GPS, com enfoque em algoritmos
+que não são baseados em árvore, sendo estes:
+(i) \textit{Naive Bayes}, (ii) \textit{K-NN}
+e (iii) \textit{Gaussian Naive Bayes}.
 
 Além da reimplementação do algoritmo (iv) \textit{Random Forest}
-que foi utilizado no artigo \cite{Aissou2021} e obteve o pior desempenho no comparativo.
-Com base no desempenho do \textit{Random Forest}, será feita a implementação do algoritmo 
-(v) \textit{Extremely randomized trees}, um modelo melhorado do \textit{Random Forest},
-que se diferem pelo fato de no \textit{Extremely randomized trees}
-não existir a fase de \textit{bagging} e no momento da separação dos nós,
-esta escolha é feita aleatoriamente. \cite{geurtsExtremelyRandomizedTrees2006}
+que foi utilizado no artigo \cite{Aissou2021}
+e obteve o pior desempenho no comparativo.
+Com base no desempenho do \textit{Random Forest},
+será feita a implementação do algoritmo 
+(v) \textit{Extremely randomized trees}, um modelo melhorado
+do \textit{Random Forest}, que se diferem pelo fato
+que no \textit{Extremely randomized trees} não existe a fase
+de \textit{bagging} e no momento da separação dos nós,
+esta escolha é feita aleatoriamente \cite{geurtsExtremelyRandomizedTrees2006}.
+Também será feita a reimplementação do algoritmo
+(v) \textit{XGBoost} que foi utilizado no artigo \cite{Aissou2021}
+e obteve o melhor desempenho no comparativo dos modelos baseados em árvore.
 
-Serão analisados a acurácia, 
+Serão analisadas a acurácia, 
 precisão e a quantidade de falsos negativos. 
 Para isso a base será dividida em porções
 diferentes para testes e o treinamento do modelo,
-sendo 70\% para treino e 30\% para testes como no artigo de \cite{Aissou2021}. 
+sendo 70\% para treino e 30\% para testes
+conforme realizado no artigo \cite{Aissou2021}. 
 
 Será aplicada a técnica de pré processamento
 \textit{Principal Component Analysis} (PCA) para melhorar
-a precisão dos resultados finais, ela consiste em reduzir as
-dimensões do dataset para deixar apenas as informações mais importantes,
+a precisão dos resultados finais. Ela consiste em reduzir a
+dimensão do dataset para deixar apenas as informações mais relevantes,
 removendo assim as redundâncias \cite{IBM02025}. 
 Esse tipo de processamento ajuda algoritmos de aprendizagem de máquina,
-simplificando o processo de reconhecimento dos dados, essa técnica é
+simplificando o processo de reconhecimento dos dados. Essa técnica é
 diferente da usada no artigo de \cite{Aissou2021}
 que se chama \textit{Spearman Correlation Coefficient}.
 
