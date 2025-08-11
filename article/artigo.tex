@@ -181,7 +181,7 @@ discussões serão apresentados na seção 5.
 Finalmente, nossas conclusões sobre o trabalho serão expostos na seção 6.
 
 \section{Metodologia (Proposta de mudança)}
-
+Neste artigo será feita a reimplementação dos algoritmos
 A metodologia adotada e os passos seguidos
 foram inspirados no artigo de \cite{Aissou2021}, 
 que implementou os algoritmos baseados em árvore: 
@@ -197,14 +197,9 @@ modelos que não são baseados em árvore,
 sendo eles: (iii) \textit{Naive Bayes}, (iv) \textit{K-NN} e
 (v) \textit{Gaussian Naive Bayes}.
 
-A proposta de mudança deste artigo consiste em avaliar outros modelos
-para a classificação de possíveis ataques de \textit{spoofing} 
-a sinais de GPS, com enfoque em algoritmos
-que não são baseados em árvore já citados.
-No entanto com base no desempenho do \textit{Random Forest},
-será feita a implementação do algoritmo 
-(vi) \textit{Extremely randomized trees}, um modelo melhorado
-do \textit{Random Forest}, que se diferem pelo fato
+Será incluído o modelo baseado em árvore conhecido como
+(vi) \textit{Extremely randomized trees} que é um modelo melhorado
+do \textit{Random Forest}, que se difere pelo fato
 que no \textit{Extremely randomized trees} não existe a fase
 de \textit{bagging} e no momento da separação dos nós,
 esta escolha é feita aleatoriamente \cite{geurtsExtremelyRandomizedTrees2006}.
@@ -237,6 +232,8 @@ Esse tipo de processamento ajuda algoritmos de aprendizagem de máquina,
 simplificando o processo de reconhecimento dos dados. Essa técnica é
 diferente da usada no artigo de \cite{Aissou2021}
 que se chama \textit{Spearman Correlation Coefficient}.
+
+
 
 
 \printbibliography
