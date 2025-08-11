@@ -68,7 +68,7 @@ de spoofing e viabilidade de implementação do modelo.
 
 \section{Introdução}
 
-Os veículos aéreos não tripulados (VANTS), também conhecidos como drone,
+Os veículos aéreos não tripulados (VANTS), também conhecidos como drones,
 são um tipo de tecnologia fundamental tanto em áreas civis quanto militares.
 Seu uso reduz a exposição humana a tarefas repetitivas, de longa duração
 e em alguns casos, de alto risco \cite{dialogos}.
@@ -82,26 +82,42 @@ de Sistema Global de Navegação por Satélite (GNSS),
 sendo o mais conhecido o \textit{Global Positioning System} (GPS),
 esses sinais podem ser criptografados ou não \cite {lester}.
 Sendo os não criptografados mais suscetíveis a ataques conhecidos como
-\textit{Spoofing} de GPS \cite{srinivasansGPSSpoofingDetection2023}. 
+\textit{Spoofing} de GPS \cite{srinivasansGPSSpoofingDetection2023}.
+
+O ataque de \textit{spoofing} de GPS
+é caracterizado por um atacante que faz uso de antenas terrestres
+emitindo sinais falsos. \cite{Spoofing}
+Estes ataques são classificados em: simples,
+intermediários e sofisticados \cite{Aissou2021}.
 
 Para garantir um vôo seguro do VANT é essencial ter medidas
 para detecção dos ataques de \textit{Spoofing de GPS}.
 A identificação precisa desses ataques é extremamente importante,
-pois técnicas avançadas de \textit{spoofing}
+pois técnicas sofisticadas de \textit{spoofing}
 podem causar disrupção no funcionamento do VANT,
 portanto são necessários métodos robustos e adaptativos
 \cite{isleyenGPSSpoofingDetection2024}.
-Nesse contexto algoritmos de aprendizado de máquina tem se mostrado promissores,
+Nesse contexto algoritmos de aprendizado
+de máquina tem se mostrado promissores,
 pois são capazes de analisar grandes volumetrias de dados,
 identificando padrões e anomalias.
 Tais abordagens oferecem uma resposta robusta e adaptativa
 a essas ameaças contribuindo para as operações dos VANTs
 \cite{isleyenGPSSpoofingDetection2024}.
 
+
+
+Neste trabalho será feita a reimplementação dos algoritmos
+\textit{RandomForest} e \textit{XGBoost} e seus respectivos 
+experimentos do artigo \cite{Aissou2021}, com o objetivo de comparar
+esses algoritmos com outros que não são baseados em árvore,
+sendo eles: \textit{Naive Bayes}, \textit{K-NN},
+\textit{Gaussian Naive Bayes} e \textit{Extremely Randomized Trees}.
+
 \section{Trabalhos relacionados}
 
-Diversos estudos recentes tem utilizado
-essa abordagem para detecção de \textit{spoofing} de GPS.
+Diversos estudos recentes tem utilizado aprendizado de máquina
+para detecção de ataques de \textit{spoofing} de GPS.
 Podemos mencionar algumas abordagens utilizadas:
 
 \begin{itemize}
@@ -145,15 +161,15 @@ Podemos mencionar algumas abordagens utilizadas:
 \end{itemize}
 
 \section{Delimitação e Escopo}
-O \textit{dataset} que será utilizado como base de dados é o \textit{Mendeley Data} 
-\cite{aissou2022dataset}, esses dados foram gerados de sinais GPS autênticos e 
-contém aproximadamente 500,000 dados, no artigo escolhido de \cite{Aissou2021} não 
-possui uma citação do \textit{dataset} usado para o treinamento dos modelos, 
-então para as análises decorrentes deste artigo será utilizada essa fonte de dados 
-simplificada e disponibilizada pelos autores do artigo. 
-De acordo com o artigo de \cite{Aissou2021}, os ataques do tipo
-\textit{spoofing} podem ser classificados em: simples,
-intermediários e sofisticados.
+
+O artigo \cite{Aissou2021} não cita o \textit{dataset}
+usado para o treinamento dos modelos, 
+então para as análises decorrentes deste artigo
+será utilizado o \textit{Mendeley Data} 
+\cite{aissou2022dataset}, que foi disponibilizado pelos autores do artigo. 
+Esse \textit{dataset} é uma versão simplificada,
+pois é representada em duas dimensões. Esses dados foram gerados de sinais
+GPS autênticos e contém aproximadamente 500,000 dados.
 
 Nas próximas seções se estabelecerá a execução do trabalho.
 Na seção 4, faremos nossa proposta de mudança
@@ -164,34 +180,40 @@ discussões serão apresentados na seção 5.
 Finalmente, nossas conclusões sobre o trabalho serão expostos na seção 6.
 
 \section{Metodologia (Proposta de mudança)}
-
-
+Neste artigo será feita a reimplementação dos algoritmos
 A metodologia adotada e os passos seguidos
 foram inspirados no artigo de \cite{Aissou2021}, 
-que utilizou a implementação de algoritmos como: 
+que implementou os algoritmos baseados em árvore: 
 \textit{Random Forest}, \textit{Gradient Boost}, \textit{XGBoost}, e 
 \textit{LightGBM} com o objetivo de explorar os dados obtidos.
 
-A proposta de mudança deste artigo é avaliar outros modelos
-para a classificação de possíveis ataques de \textit{spoofing} 
-a sinais de GPS, com enfoque em algoritmos
-que não são baseados em árvore, sendo estes:
-(i) \textit{Naive Bayes}, (ii) \textit{K-NN}
-e (iii) \textit{Gaussian Naive Bayes}.
+Será realizada a reimplementação dos algoritmos (i) \textit{Random Forest}
+e (ii) \textit{XGBoost}, ambos obtiveram o pior
+e melhor desempenho respectivamente,
+no comparativo dos modelos baseados em árvore. 
+Ambos algoritmos serão comparados com outros
+modelos que não são baseados em árvore,
+sendo eles: (iii) \textit{Naive Bayes}, (iv) \textit{K-NN} e
+(v) \textit{Gaussian Naive Bayes}.
 
-Além da reimplementação do algoritmo (iv) \textit{Random Forest}
-que foi utilizado no artigo \cite{Aissou2021}
-e obteve o pior desempenho no comparativo.
-Com base no desempenho do \textit{Random Forest},
-será feita a implementação do algoritmo 
-(v) \textit{Extremely randomized trees}, um modelo melhorado
-do \textit{Random Forest}, que se diferem pelo fato
+Será incluído o modelo baseado em árvore conhecido como
+(vi) \textit{Extremely randomized trees} que é um modelo melhorado
+do \textit{Random Forest}, que se difere pelo fato
 que no \textit{Extremely randomized trees} não existe a fase
 de \textit{bagging} e no momento da separação dos nós,
 esta escolha é feita aleatoriamente \cite{geurtsExtremelyRandomizedTrees2006}.
-Também será feita a reimplementação do algoritmo
-(v) \textit{XGBoost} que foi utilizado no artigo \cite{Aissou2021}
-e obteve o melhor desempenho no comparativo dos modelos baseados em árvore.
+
+Será feita a análise comparativa entre os algoritmos baseados em árvore
+e os demais algoritmos, com o objetivo de identificar
+aquele que melhor equilibre a detecção correta
+de \textit{spoofing} e viabilidade de implementação do modelo.
+Também ocorrerá a análise entre os modelos baseados em árvore
+para averiguar se o \textit{Extremely Randomized Trees}
+obtém um desempenho melhor que o \textit{Random Forest}.
+O algoritmo \textit{XGBoost}
+será mantido, pois obteve o melhor desempenho
+no artigo de \cite{Aissou2021}. Portanto ele será usado como base
+para comparação com os demais algoritmos.
 
 Serão analisadas a acurácia, 
 precisão e a quantidade de falsos negativos. 
@@ -210,7 +232,8 @@ simplificando o processo de reconhecimento dos dados. Essa técnica é
 diferente da usada no artigo de \cite{Aissou2021}
 que se chama \textit{Spearman Correlation Coefficient}.
 
-%\subsection{Algoritmos}
+
+
 
 \printbibliography
 
