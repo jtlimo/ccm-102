@@ -60,7 +60,7 @@ quantidade de falsos alarmes e fornecendo informações confiáveis por meio do
 aprendizado de máquina que exerce papel fundamental na classificação destes 
 ataques. A proposta deste projeto é realizar uma análise comparativa das 
 métricas de avaliação dos seguintes modelos de aprendizado de máquina:
-Random Forest, XGBoost, Naive Bayes, K-NN,
+Random Forest, XGBoost, SVM, K-NN,
 Gaussian Naive Bayes e Extremely Randomized Trees,
 visando identificar aquele que melhor equilibre a detecção correta
 de spoofing e viabilidade de implementação do modelo.
@@ -111,7 +111,7 @@ Neste trabalho será feita a reimplementação dos algoritmos
 \textit{RandomForest} e \textit{XGBoost} e seus respectivos 
 experimentos do artigo \cite{Aissou2021}, com o objetivo de comparar
 esses algoritmos com outros que não são baseados em árvore,
-sendo eles: \textit{Naive Bayes}, \textit{K-NN},
+sendo eles: \textit{Support Vector Machines} (SVM), \textit{K-NN},
 \textit{Gaussian Naive Bayes} e \textit{Extremely Randomized Trees}.
 
 \section{Trabalhos relacionados}
@@ -179,8 +179,7 @@ serem implementados. Logo, os resultados e
 discussões serão apresentados na seção 5.
 Finalmente, nossas conclusões sobre o trabalho serão expostos na seção 6.
 
-\section{Metodologia (Proposta de mudança)}
-Neste artigo será feita a reimplementação dos algoritmos
+\section{Metodologia}
 A metodologia adotada e os passos seguidos
 foram inspirados no artigo de \cite{Aissou2021}, 
 que implementou os algoritmos baseados em árvore: 
@@ -193,7 +192,7 @@ e melhor desempenho respectivamente,
 no comparativo dos modelos baseados em árvore. 
 Ambos algoritmos serão comparados com outros
 modelos que não são baseados em árvore,
-sendo eles: (iii) \textit{Naive Bayes}, (iv) \textit{K-NN} e
+sendo eles: (iii) SVM, (iv) \textit{K-NN} e
 (v) \textit{Gaussian Naive Bayes}.
 
 Será incluído o modelo baseado em árvore conhecido como
@@ -222,6 +221,8 @@ diferentes para testes e o treinamento do modelo,
 sendo 70\% para treino e 30\% para testes
 conforme realizado no artigo \cite{Aissou2021}. 
 
+\subsection{Pré-Processamento dos dados}
+
 Será aplicada a técnica de pré processamento
 \textit{Principal Component Analysis} (PCA) para melhorar
 a precisão dos resultados finais. Ela consiste em reduzir a
@@ -233,8 +234,49 @@ diferente da usada no artigo de \cite{Aissou2021}
 que se chama \textit{Spearman Correlation Coefficient}.
 
 
+\subsection{Análise do desempenho}
+Para análisar a eficácia do algoritmo através dos dados disponíveis é 
+necessário avaliar os comportamentos dos modelos e para isso 
+serão utilizadas as seguintes métricas: (i) acurácia, erro, precisão, 
+sensibilidade (recall) e F1 score para desempenho.
+
+\begin{comment}
+  Adicionar aqui as métricas utilizadas vai usar validação cruzada mesmo?
+\end{comment}
+
+\section{Resultados e discussões}
+
+\begin{table}
+  \caption{Análise de desempenho}
+  \begin{tabular}{|l|l|l|l|l|l|l|}
+    \hline
+    Agoritmo & Acurácia & Precisão & Erro & Recall & F1 Score \\
+    \hline
+    Random Forest & 2.1\% & 2.1\% & 2.1\% & 2.1\% & 2.1\%  \\
+    \hline
+    Gausian Naive Bayes & 11.6\% & 11.6\% & 11.6\% & 11.6\% & 11.6\% \\
+    \hline
+    KNN & 5.5\% & 5.5\% & 5.5\% & 5.5\% & 5.5\%  \\
+    \hline
+    Extremely randomized trees  & 5.5\% & 5.5\% & 5.5\% & 5.5\% & 5.5\%  \\
+    \hline
+    XGBoost  & 5.5\% & 5.5\% & 5.5\% & 5.5\% & 5.5\%  \\
+    \hline
+    SVM  & 5.5\% & 5.5\% & 5.5\% & 5.5\% & 5.5\%  \\
+    \hline
+  \end{tabular}
+\end{table}
+
+Com base nos dados da Tabela 1 podemos avaliar o desempenho dos algoritmos utilizados 
+para classificar ataques de \textit{spoofing} aos VANTS.
+\subsection{Acurácia}
+\subsection{Precisão}
+\subsection{Erro}
+\subsection{Recall}
+\subsection{F1 Score}
 
 
+\section{Conclusão}
 \printbibliography
 
 \end{document}
