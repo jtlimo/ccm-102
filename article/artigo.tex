@@ -2,6 +2,7 @@
 
 \usepackage{sbc-template}
 \usepackage{graphicx,url}
+\usepackage{microtype}
 \usepackage[utf8]{inputenc}
 \usepackage[brazil]{babel}
 \usepackage{comment}
@@ -248,23 +249,30 @@ sensibilidade (recall) e F1 score para desempenho.
 
 \begin{table}
   \caption{Análise de desempenho}
-  \begin{tabular}{|l|l|l|l|l|l|l|}
-    \hline
-    Agoritmo & Acurácia & Precisão & Erro & Recall & F1 Score \\
-    \hline
-    Random Forest & 2.1\% & 2.1\% & 2.1\% & 2.1\% & 2.1\%  \\
-    \hline
-    Gausian Naive Bayes & 11.6\% & 11.6\% & 11.6\% & 11.6\% & 11.6\% \\
-    \hline
-    KNN & 5.5\% & 5.5\% & 5.5\% & 5.5\% & 5.5\%  \\
-    \hline
-    Extremely randomized trees  & 5.5\% & 5.5\% & 5.5\% & 5.5\% & 5.5\%  \\
-    \hline
-    XGBoost  & 5.5\% & 5.5\% & 5.5\% & 5.5\% & 5.5\%  \\
-    \hline
-    SVM  & 5.5\% & 5.5\% & 5.5\% & 5.5\% & 5.5\%  \\
-    \hline
-  \end{tabular}
+  \resizebox{\textwidth}{!}{%
+    \begin{tabular}{|l|l|l|l|l|l|l|l|l|}
+      \hline                             
+      Métrica                               & Random Forest   &     KNN       &  Gausian Naive Bayes       &    SVM     & Extremely Randomized Trees   & XGBoost \\
+      \hline
+      Probabilidade de detecção             & 90.8\%          &    73.3\%    &    46.2\%                   &   0.462\%  &   0.462\%                    &   0.462\% \\
+      \hline  
+      Acurácia                              & 93.5\%          &    79.0\%    &    58.3\%                   &   0.462\%  &   0.462\%                    &   0.462\% \\
+      \hline  
+      Probabilidade de detecção falsa       & 9.2\%           &    26.7\%    &    53.8\%                   &   0.462\%  &   0.462\%                    &   0.462\% \\
+      \hline  
+      Probabilidade de alarme falso         & 1.6\%           &    5.40\%    &    26.5\%                   &   0.462\%  &   0.462\%                    &   0.462\% \\
+      \hline  
+      Taxa de Erro                          & 6.5\%           &    21.00\%   &    41.7\%                   &   0.462\%  &   0.462\%                    &   0.462\%  \\
+      \hline  
+      Coefiente MCC                         & 0.812           &    0.552      &   0.160                    &   0.462    &   0.462                      &   0.462  \\
+      \hline             
+      F1-Score                              & 0.914           &    0.762      &   0.527                    &   0.462    &   0.462                      &   0.462 \\
+      \hline             
+      Especificidade                        & 0.984           &    0.946      &   0.736                    &   0.462    &   0.462                      &   0.462 \\
+      \hline
+
+    \end{tabular}
+  }
 \end{table}
 
 Com base nos dados da Tabela 1 podemos avaliar o desempenho dos algoritmos utilizados 
