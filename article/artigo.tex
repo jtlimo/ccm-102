@@ -220,11 +220,12 @@ Serão analisadas a acurácia,
 precisão e a quantidade de falsos negativos.
 Além disso, será feita a análise do tempo de treinamento,
 predição e uso de memória de cada modelo.
+
 \subsection{Divisão dos dados}
 A base será dividida em porções
 diferentes para testes e o treinamento do modelo,
 sendo 70\% para treino e 30\% para testes
-conforme realizado no artigo \cite{Aissou2021}.
+conforme realizado no artigo. \cite{Aissou2021}
 
 \subsection{Matthews Correlation Coefficient (MCC)}
 O \textit{Matthews Correlation Coefficient} (MCC) é uma métrica
@@ -248,16 +249,18 @@ simplificando o processo de reconhecimento dos dados. Essa técnica é
 diferente da usada no artigo de \cite{Aissou2021}
 que se chama \textit{Spearman Correlation Coefficient}.
 
-
 \subsection{Análise do desempenho}
 Para análisar a eficácia do algoritmo através dos dados disponíveis é 
 necessário avaliar os comportamentos dos modelos e para isso 
-serão utilizadas as seguintes métricas: (i) acurácia, erro, precisão, 
-sensibilidade (recall) e F1 score para desempenho.
-
-\begin{comment}
-  Adicionar aqui as métricas utilizadas vai usar validação cruzada mesmo?
-\end{comment}
+serão utilizadas as seguintes métricas:
+(\romannumeral 1) probabilidade de detecção,
+(\romannumeral 2) acurácia,
+(\romannumeral 3) probabilidade de detecção falsa,
+(\romannumeral 4) probabilidade de alarme falso,
+(\romannumeral 5) taxa de erro,
+(\romannumeral 6) coeficiente MCC,
+(\romannumeral 7) F1 score,
+(\romannumeral 8) especificidade.
 
 \section{Resultados e discussões}
 
