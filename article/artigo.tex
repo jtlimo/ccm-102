@@ -226,10 +226,15 @@ diferentes para testes e o treinamento do modelo,
 sendo 70\% para treino e 30\% para testes
 conforme realizado no artigo \cite{Aissou2021}.
 
-Para a avaliação do desempenho dos modelos
-será utilizada a biblioteca \textit{PyCM} do Python
-\cite{Haghighi2018}, que é uma biblioteca de matriz de confusão
-multiclasse, que implementa diversas métricas de classificação.
+\subsection{Matthews Correlation Coefficient (MCC)}
+O \textit{Matthews Correlation Coefficient} (MCC) é uma métrica
+de avaliação de modelos de classificação binária,
+que posteriormente foi extrapolada para classificação multiclasse. \cite{MCC}
+
+Neste trabalho será utilizado o MCC,
+juntamente com a acurácia para avaliar a eficácia
+dos modelos de aprendizado de máquina
+na detecção de ataques de \textit{spoofing} de GPS.
 
 \subsection{Pré-Processamento dos dados}
 
