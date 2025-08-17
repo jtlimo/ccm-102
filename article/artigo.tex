@@ -187,10 +187,11 @@ que implementou os algoritmos baseados em árvore:
 \textit{Random Forest}, \textit{Gradient Boost}, \textit{XGBoost}, e 
 \textit{LightGBM} com o objetivo de explorar os dados obtidos.
 
-Será realizada a reimplementação dos algoritmos (i) \textit{Random Forest}
-e (ii) \textit{XGBoost}, ambos obtiveram o pior
-e melhor desempenho respectivamente,
-no comparativo dos modelos baseados em árvore. 
+Será realizada a reimplementação dos algoritmos
+(i) \textit{Random Forest} e (ii) \textit{XGBoost},
+ambos obtiveram o pior e melhor desempenho,
+respectivamente, ponderando as métricas de tempo de execução e uso de memória,
+no comparativo dos modelos baseados em árvore.
 Ambos algoritmos serão comparados com outros
 modelos que não são baseados em árvore,
 sendo eles: (iii) SVM, (iv) \textit{K-NN} e
@@ -215,9 +216,12 @@ será mantido, pois obteve o melhor desempenho
 no artigo de \cite{Aissou2021}. Portanto ele será usado como base
 para comparação com os demais algoritmos.
 
-Serão analisadas a acurácia, 
-precisão e a quantidade de falsos negativos. 
-Para isso a base será dividida em porções
+Serão analisadas a acurácia,
+precisão e a quantidade de falsos negativos.
+Além disso, será feita a análise do tempo de treinamento,
+predição e uso de memória de cada modelo.
+\subsection{Divisão dos dados}
+A base será dividida em porções
 diferentes para testes e o treinamento do modelo,
 sendo 70\% para treino e 30\% para testes
 conforme realizado no artigo \cite{Aissou2021}. 
