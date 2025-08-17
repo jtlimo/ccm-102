@@ -254,21 +254,21 @@ a precisão dos resultados finais. Ela consiste em reduzir a
 dimensão do dataset para deixar apenas as informações mais relevantes,
 removendo assim as redundâncias \cite{IBM02025}. Assim como serão utilizadas
 outras duas técnicas adicionais conhecidas como \textit{Standard Scaler} para
-aumentar o processamento e o
+melhorar o desempenho do processamento e o
 \textit{Random Under Sampler} para reduzir o desbalanceamento das classes
 que dificultam o treinamento e a análise dos dados.
 
 Os motivos pelos quais foram escolhidos esses métodos está embasado nos seguintes artigos: 
 \begin{itemize}
-  \item \textbf{PCA:} Nessa pesquisa de \textcite {Zhang2019MachineLW} 
-    foi aplicada a técnica de pré-processamento PCA para detectar \textit{malwares}
-    e constatou a remoção de redundâncias com impacto mínimo em perda de dados.
-  \item \textbf{Standard Scaler:} nesse artigo de \textcite {DEAMORIM2023109924} 
-    técnica de pré-processamento \textit{Standard Scaler} foi empregada para verificar 
+  \item \textbf{PCA:} Nessa pesquisa de \cite {Zhang2019MachineLW} 
+    foi utilizada para detectar \textit{malwares}
+    e constatou a remoção de redundâncias dos dados com perda mínima.
+  \item \textbf{Standard Scaler:} Nesse artigo  de \cite {DEAMORIM2023109924} 
+    a técnica foi empregada para verificar 
     a performance dos algoritmos de classificação e provou ser eficaz.
-  \item \textbf{Random Under Sampler:} nesse artigo de \textcite {DEAMORIM2023109924} 
-    técnica de pré-processamento \textit{Random Under Sampler} desempenhou papel crucial
-    para a detecção de intrusão em \textit{smartphones}, pois o modelo ajuda em dados desbalanceados.
+  \item \textbf{Random Under Sampler:} Nesse artigo de \cite {DEAMORIM2023109924} 
+    desempenhou papel crucial para a detecção de intrusão em \textit{smartphones}, 
+    pois o modelo é bem empregado quando há dados desbalanceados.
 \end{itemize}
 
 Essas técnicas são
