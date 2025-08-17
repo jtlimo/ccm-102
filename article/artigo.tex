@@ -213,13 +213,22 @@ para averiguar se o \textit{Extremely Randomized Trees}
 obtém um desempenho melhor que o \textit{Random Forest}.
 O algoritmo \textit{XGBoost}
 será mantido, pois obteve o melhor desempenho
-no artigo de \cite{Aissou2021}. Portanto ele será usado como base
+no artigo de \cite{Aissou2021}.
+Portanto ele será usado como base
 para comparação com os demais algoritmos.
+
+Para a avaliação do desempenho dos modelos
+será utilizada a biblioteca \textit{PyCM} do Python,
+que é uma biblioteca de matriz de confusão
+multiclasse, que implementa diversas métricas de classificação.
+\cite{Haghighi2018}
 
 Serão analisadas a acurácia,
 precisão e a quantidade de falsos negativos.
 Além disso, será feita a análise do tempo de treinamento,
-predição e uso de memória de cada modelo.
+predição e uso de memória de cada modelo,
+com o objetivo de identificar o mais viável
+para implementação em VANTs.
 
 \subsection{Divisão dos dados}
 A base será dividida em porções
