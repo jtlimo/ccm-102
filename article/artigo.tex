@@ -15,7 +15,7 @@
     citestyle=authoryear,
     backend=biber
 ]{biblatex}
-
+\usepackage{pgfplots}
 \addbibresource{references.bib}
 
 \DeclareFieldFormat{labelyear}{#1}
@@ -337,11 +337,44 @@ para classificar ataques de \textit{spoofing} aos VANTS.
 \subsection{Probabilidade de detecção falsa}
 \subsection{Probabilidade de alarme falso}
 \subsection{Taxa de erro}
+Os algoritmos com a menor taxa de erros são: \textit{Random Forest} (6.49\%) 
+e o \textit{Extremely Randomized Trees} (7.35\%), 
+enquanto os que apresentaram pior performance foram SVM (46.75\%) 
+e \textit{Gausian Naive Bayes} (41.66\%). 
 \subsection{Coeficiente MCC}
+O \textit{Random Forest} apresentou o maior MCC (0.81) provando ser confiável na detecção, 
+enquando o SVM o pior (0.45).
 \subsection{F1 score}
+Novamente o \textit{Random Forest} (0.91) e o \textit{Extremely Randomized Trees} (0.90) 
+provaram sua eficácia, e  SVM (0.45) como pior na avaliação de recall e precisão.
 \subsection{Especificidade}
+O \textit{Random Forest} tem a maior especificidade prevendo um verdadeiro negativo 
+para cada categoria disponível (0.98) e o menor SVM (0.84).
 
 \section{Conclusão}
+Neste trabalho foi realizada a análise de diferentes algoritmos de aprendizagem de máquina
+para detectar ataques do tipo \textit{spoofing} a sinais de GPS. Dentre os algoritmos implementados
+o que apresentou as melhores métricas foi o \textit{Random Forest}. Ao longo deste artigo o objetivo
+era buscar melhorar a efiência do \textit{Random Forest} comparado com o XGBoost, que foi o melhor 
+no artigo de \cite{Aissou2021}, após os experimentos o objetivo foi alcançado com sucesso, 
+através das técnicas de pré-processamento implementadas.
+
+Apesar das métricas serem positivas, ainda precisaria aumentar a sua precisão para a aplicação
+em ambientes empresariais, pois a porcentagem de erros ainda é grande se comparada inclusive com o artigo,
+que foi tomado como base de \cite{Aissou2021} que girava em torno de 4.3\%. Além disso o tempo de treinamento 
+do \textit{Random Forest} ainda é maior que o do XGBoost, porém o gasto de memória é menor.
+
+O algoritmo conhecido como \textit{Extremely Randomized Trees} não provou ser mais eficiente
+que o \textit{Random Forest}, mas sua utilização e gasto de recursos operacionais e tempo. Ele possui 
+resultados comparáveis \textit{Random Forest}.
+
+\section{Trabalhos Futuros}
+
+Para os próximos passos buscar a melhora do \textit{Extremely Randomized Trees} pode ser um caminho viável,
+e mais economico em custos operacionais do que o XGBoost e o \textit{Random Forest}.
+Poderiam ser implementadas também outros tipos de algoritmo no mesmo cenário para buscar alternativas melhores 
+do que os utilizados nesse artigo.
+
 
 \printbibliography
 
