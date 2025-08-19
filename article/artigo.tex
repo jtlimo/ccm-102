@@ -9,7 +9,7 @@
 \usepackage{lipsum}
 \usepackage{csquotes}
 \usepackage{url}
-\usepackage{placeins}
+\usepackage[section]{placeins}
 \usepackage[
     style=authoryear,
     citestyle=authoryear,
@@ -279,38 +279,13 @@ serão utilizadas as seguintes métricas:
 
 \section{Resultados e discussões}
 
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=1\linewidth]{../plot_accuracy_and_tpr.pdf}
-  \caption{Gráfico de probabilidade de detecção e acurácia.}
-\end{figure}
+Com base nos dados da Tabela ~\ref{table:desempenho} podemos avaliar
+o desempenho dos algoritmos utilizados
+para classificar ataques de \textit{spoofing} aos VANTS.
 
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=1\linewidth]{../plot_pmd_and_pfa.pdf}
-    \caption{Gráfico de probabilidade de detecção falsa e probabilidade de alarme falso.}
-\end{figure}
-
-\begin{table}
-  \caption{Métricas de performance dos modelos}
-  \resizebox{\textwidth}{!}{%
-    \begin{tabular}{|l|l|l|l|l|}
-      \hline
-      Algoritmo & Tempo de treinamento & Uso de memória (treinamento) & Tempo de predição & Uso de memória (predição) \\
-      \hline
-      Gaussian Naive Bayes & 209.44 ms & 8.92 MiB & 48.67 ms & 33.95 MiB \\
-      KNN & 335.34 ms & 4.18 MiB & 9129.37 ms & 25.39 MiB \\
-      SVM & 772.69 ms & 1.45 MiB & 15.19 ms & 9.41 MiB \\
-      Extremely Randomized Trees & 6180.53 ms & 10.12 MiB & 2237.85 ms & 18.13 MiB \\
-      Random Forest & 43128.56 ms & 11.84 MiB & 1475.68 ms & 18.13 MiB \\
-      Xtreme Gradient Boosting & 229203.56 ms & 18.13 MiB & 793.14 ms & 23.96 MiB \\
-      \hline
-    \end{tabular}
-  }
-\end{table}
-
-\begin{table}
+\begin{table}[!h]
   \caption{Métricas de desempenho}
+  \label{table:desempenho}
   \resizebox{\textwidth}{!}{%
     \begin{tabular}{|l|l|l|l|l|l|l|l|}
       \hline
@@ -329,15 +304,60 @@ serão utilizadas as seguintes métricas:
     }
 \end{table}
 
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=1\linewidth]{../plot_accuracy_and_tpr.pdf}
+  \caption{Gráfico de probabilidade de detecção e acurácia.}
+  \label{fig:accuracy_and_tpr}
+\end{figure}
 
-\FloatBarrier
-
-Com base nos dados da Tabela 1 podemos avaliar o desempenho dos algoritmos utilizados 
-para classificar ataques de \textit{spoofing} aos VANTS.
 \subsection{Probabilidade de detecção}
+Os algoritmos com a maior probabilidade de detecção
+foram o \textit{Random Forest} (90.76\%) e o \textit{Extremely Randomized Trees} (89.71\%),
+enquanto os que apresentaram pior desempenho foram o SVM (37.68\%) 
+e o \textit{Gaussian Naive Bayes} (46.21\%).
+A figura ~\ref{fig:accuracy_and_tpr} mostra a probabilidade de detecção
+e a acurácia dos modelos.
+
 \subsection{Acurácia}
+A acurácia do \textit{Random Forest} foi de 93.51\%,
+seguido pelo \textit{Extremely Randomized Trees} com 92.65\%,
+enquanto o \textit{XGBoost} obteve 79.29\% e o \textit{SVM} 53.25\%.
+Esses resultados indicam que o \textit{Random Forest}
+e o \textit{Extremely Randomized Trees}
+são os mais eficazes na detecção de ataques de \textit{spoofing}.
+O \textit{XGBoost} obteve uma acurácia inferior ao \textit{Random Forest},
+o que indica que as técnicas de pré-processamento
+não foram eficazes para esse algoritmo.
+O \textit{SVM} obteve a menor acurácia, indicando que não é adequado
+para a detecção de ataques de \textit{spoofing}.
 \subsection{Probabilidade de detecção falsa}
+Os algoritmos que não são baseados em árvore obtiveram
+as maiores probabilidades de detecção falsa,
+sendo o \textit{Gaussian Naive Bayes} (53.79\%)
+e o \textit{SVM} (62.32\%).
+Esses resultados indicam que os algoritmos não baseados em árvore
+são ineficazes na detecção de ataques de \textit{spoofing}.
+
 \subsection{Probabilidade de alarme falso}
+
+O \textit{Random Forest} obteve a menor probabilidade de alarme falso (1.63\%).
+Em comparação com o estudo de \cite{Aissou2021},
+na qual obteve uma probabilidade de alarme falso de (8.53\%),
+o \textit{Random Forest} obteve uma melhora significativa.
+Possivelmente devido as técnicas de pré-processamento
+implementadas neste trabalho.
+
+A figura ~\ref{fig:pmd_and_pfa} mostra a probabilidade
+de detecção falsa e alarme falso dos modelos.
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=1\linewidth]{../plot_pmd_and_pfa.pdf}
+  \caption{Gráfico de probabilidade de detecção falsa e alarme falso.}
+  \label{fig:pmd_and_pfa}
+\end{figure}
+
 \subsection{Taxa de erro}
 Os algoritmos com a menor taxa de erros são: \textit{Random Forest} (6.49\%) 
 e o \textit{Extremely Randomized Trees} (7.35\%), 
@@ -345,7 +365,7 @@ enquanto os que apresentaram pior performance foram SVM (46.75\%)
 e \textit{Gausian Naive Bayes} (41.66\%). 
 \subsection{Coeficiente MCC}
 O \textit{Random Forest} apresentou o maior MCC (0.81) provando ser confiável na detecção, 
-enquando o SVM o pior (0.45).
+enquando o \textit{SVM} o pior (0.45).
 \subsection{F1 score}
 Novamente o \textit{Random Forest} (0.91) e o \textit{Extremely Randomized Trees} (0.90) 
 provaram sua eficácia, e  SVM (0.45) como pior na avaliação de recall e precisão.
@@ -353,31 +373,121 @@ provaram sua eficácia, e  SVM (0.45) como pior na avaliação de recall e preci
 O \textit{Random Forest} tem a maior especificidade prevendo um verdadeiro negativo 
 para cada categoria disponível (0.98) e o menor SVM (0.84).
 
+\subsection{Métricas de performance}
+Com base na Tabela \ref{table:performance} podemos avaliar as métricas de performance
+dos modelos de aprendizado de máquina.
+
+\begin{table}[!h]
+  \caption{Métricas de performance dos modelos}
+  \label{table:performance}
+  \resizebox{\textwidth}{!}{%
+    \begin{tabular}{|l|l|l|l|l|}
+      \hline
+      Algoritmo & Tempo de treinamento & Uso de memória (treinamento) & Tempo de predição & Uso de memória (predição) \\
+      \hline
+      Gaussian Naive Bayes & 209.44 ms & 8.92 MiB & 48.67 ms & 33.95 MiB \\
+      KNN & 335.34 ms & 4.18 MiB & 9129.37 ms & 25.39 MiB \\
+      SVM & 772.69 ms & 1.45 MiB & 15.19 ms & 9.41 MiB \\
+      Extremely Randomized Trees & 6180.53 ms & 10.12 MiB & 2237.85 ms & 18.13 MiB \\
+      Random Forest & 43128.56 ms & 11.84 MiB & 1475.68 ms & 18.13 MiB \\
+      Xtreme Gradient Boosting & 229203.56 ms & 18.13 MiB & 793.14 ms & 23.96 MiB \\
+      \hline
+    \end{tabular}
+  }
+\end{table}
+
+Os algoritmos que não são baseados em árvore, foram os que apresentaram
+melhores métricas de performance, com destaque para o \textit{Gaussian Naive Bayes}
+que obteve o menor tempo de treinamento (209.44 ms),
+e o \textit{SVM} que obteve o menor uso de memória
+no treino e na predição (1.45 MiB e 9.41 MiB), além de ser o mais rápido na predição (15.19 ms).
+Apesar da boa performance em tempo de execução e uso de memória,
+as métricas de desempenho foram ruins, com alta taxa de erro (41.69\% e 46.75\%)
+e baixa acurácia (58.31\% e 53.25\%).
+
 \section{Conclusão}
-Neste trabalho foi realizada a análise de diferentes algoritmos de aprendizagem de máquina
-para detectar ataques do tipo \textit{spoofing} a sinais de GPS. Dentre os algoritmos implementados
-o que apresentou as melhores métricas foi o \textit{Random Forest}. Ao longo deste artigo o objetivo
-era buscar melhorar a efiência do \textit{Random Forest} comparado com o XGBoost, que foi o melhor 
-no artigo de \cite{Aissou2021}, após os experimentos o objetivo foi alcançado com sucesso, 
+
+Neste trabalho foi realizada a análise de diferentes
+algoritmos de aprendizagem de máquina
+para detectar ataques do tipo \textit{spoofing}
+a sinais de GPS em VANTs.
+
+Dentre os algoritmos implementados o que apresentou as melhores métricas de desempenho
+foi o \textit{Random Forest}.
+Em relação as métricas de performance, o \textit{Random Forest} obtém melhores
+resultados que o \textit{XGBoost} nos aspectos
+de tempo de treinamento (43128.56 ms) e uso de memória (18.13 MiB), 
+porém o \textit{XGBoost} ainda é mais rápido na predição (793.14 ms).
+
+Os demais algoritmos que não são baseados em árvore,
+\textit{SVM} e \textit{Gaussian Naive Bayes} apresentaram
+resultados ruins, com altas taxas de erro (46.75\% e 41.69\% respectivamente),
+e baixa acurácia (53.25\% e 58.31\% respectivamente).
+O \textit{K-NN} também não se destacou, com
+taxa de erro de 21.04\% e acurácia de 78.96\%.
+Apesar de sua acurácia estar próxima ao \textit{XGBoost},
+as probabilidades de detecção falsa e alarme falso
+foram altas (26.68\% e 5.37\% respectivamente).
+Esses resultados indicam que esses algoritmos não são adequados
+para a detecção de ataques de \textit{spoofing} em VANTs.
+
+Ao longo deste artigo o objetivo
+era buscar melhorar a eficiência do \textit{Random Forest}
+comparado com o \textit{XGBoost}, que ponderado com as métricas de performance
+foi o que obteve melhor eficiência no artigo de \cite{Aissou2021}.
+Após os experimentos o objetivo foi alcançado com sucesso, 
 através das técnicas de pré-processamento implementadas.
 
-Apesar das métricas serem positivas, ainda precisaria aumentar a sua precisão para a aplicação
-em ambientes empresariais, pois a porcentagem de erros ainda é grande se comparada inclusive com o artigo,
-que foi tomado como base de \cite{Aissou2021} que girava em torno de 4.3\%. Além disso o tempo de treinamento 
-do \textit{Random Forest} ainda é maior que o do XGBoost, porém o gasto de memória é menor.
+Apesar das métricas serem positivas,
+seria necessário melhorar as métricas de performance
+para que o algoritmo fosse viável para implementação em VANTs.
 
-O algoritmo conhecido como \textit{Extremely Randomized Trees} não provou ser mais eficiente
-que o \textit{Random Forest}, mas sua utilização e gasto de recursos operacionais e tempo. Ele possui 
-resultados comparáveis \textit{Random Forest}.
+Em comparação ao artigo de \cite{Aissou2021},
+o \textit{Random Forest} obteve uma acurácia menor
+(93.51\% contra 94.07\%), o que indica que ainda há espaço para melhorar.
+Já o \textit{XGBoost} obteve uma acurácia significativamente menor
+(79.29\% contra 95.52\%), indicando que as técnicas de pré-processamento
+utilizadas não foram eficazes para esse algoritmo.
+Portanto, é necessário explorar outras técnicas de pré-processamento
+ou ajustar os hiperparâmetros do modelo para melhorar seu desempenho.
+As probabilidades de detecção falsa e alarme falso do \textit{Random Forest}
+foram de 9.24\% e 1.63\% respectivamente, enquanto no trabalho de \cite{Aissou2021}
+foram de 3.77\% e 8.53\%. Isso indica que o \textit{Random Forest} ainda pode ser melhorado
+para reduzir esses valores, aumentando a confiabilidade do modelo.
+Há a possibilidade que a escolha do \textit{dataset} tenha influenciado negativamente
+nos resultados do \textit{XGBoost}.
+
+O algoritmo \textit{Extremely Randomized Trees}
+não provou ser mais eficiente que o \textit{Random Forest},
+mas suas métricas de performance são ligeiramente melhores, sendo
+mais rápido no treinamento (6180.53 ms) e consumindo (10.12 MiB) de memória
+no treinamento e (18.13 MiB) na predição.
+O único ponto negativo é que é mais lento na predição (2237.85 ms).
+Portanto, seria uma alternativa viável ao \textit{Random Forest},
+pois no que diz respeito as métricas de desempenho os resultados
+são similares ao \textit{Random Forest}.
+
 
 \section{Trabalhos Futuros}
 
-Para os próximos passos buscar a melhora do \textit{Extremely Randomized Trees} pode ser um caminho viável,
-e mais economico em custos operacionais do que o XGBoost e o \textit{Random Forest}.
-Poderiam ser implementadas também outros tipos de algoritmo no mesmo cenário para buscar alternativas melhores 
-do que os utilizados nesse artigo.
+Em trabalhos futuros seria interessante
+investigar o uso de outros algoritmos de aprendizado de máquina
+para detecção de ataques de \textit{spoofing} de GPS,
+como por exemplo, redes neurais convolucionais (CNN) e inteligência artificial generativa,
+que tem se mostrado eficazes em outras aplicações.
+\cite{cnn2023, elalamiDroneDefGANtGenerativeAIBased2024}
 
+Realizar o \textit{cross-validation}
+seria interessante, pois poderia fornecer uma avaliação mais robusta
+do desempenho dos modelos, evitando o overfitting e garantindo que os resultados
+obtidos sejam generalizáveis para novos dados.
 
+Por fim, buscar a melhora do
+\textit{Extremely Randomized Trees} pode ser um caminho viável
+e econômico em custos operacionais do que o \textit{XGBoost}
+e o \textit{Random Forest}.
+
+\FloatBarrier
 \printbibliography
 
 \end{document}
